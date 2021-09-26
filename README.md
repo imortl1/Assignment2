@@ -10,5 +10,6 @@ Create a public repository
 A README.md describing the project and instructions on how to use it (i.e. brief documentation)
 A .gitignore file suited for Python projects
 A working Python script
-Submission
+
+Submission:
 Submit the URL to your Github repo.
