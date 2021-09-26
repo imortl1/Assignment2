@@ -1,3 +1,22 @@
+"""
+Week 13 Assignment 5 - Thomas Kiernan
+Blackjack / Twenty-one
+Blackjack is a popular card game. The objective of the game is to draw cards and obtain the highest total not exceeding 21.
+
+Simplified game requirements
+The possible card values range from 1 to 10 and, unlike a real deck, the probability of drawing a card is equal
+The game begins by dealing two visible cards to the player, and two cards to the dealer. However, in the case of the dealer, one card is visible to other player while the other is hidden.
+The player decides whether to "hit" (draw another card), or "stand" which ends their turn.
+The player may hit any number of times. Should the total of the cards exceed 21, the player "busts" and loses the game to the dealer. The round then ends and the dealer does not have to draw/show any additional cards.
+If the player reaches 21, the player stands
+The dealer's turn begins by revealing the hidden card
+The dealer must continue to hit if the total is 16 or less, and must stand if the value is 17 or more
+The dealer busts if their total is over 21 and the player wins.
+The dealer wins all ties (i.e. if both the dealer and the player reach 21, the dealer wins)
+The program indicates who the winner is and asks to play again
+It is up to you as the developer on how you will choose to handle invalid user input, but note the program cannot crash upon invalid input. Options can involve asking the user again or exiting the program with a user-friendly message.
+"""
+
 import random
 import sys
 import time
@@ -20,20 +39,18 @@ def main():
         else:
             print('Please type Y or N\n')
 
-    #while playing_blackjack:
     while True:
         player_cards = []
         dealer_cards = []
         end_game = False
 
         deal_1st_cards()
-
         print (f'\nYour hand    ', end="")
         print (*player_cards)
         print (f'Dealer hand  {dealer_cards[0]} ?')
         print (f'Player has {sum(player_cards)} and the Dealer shows a {dealer_cards[0]}')
 
-        end_game = players_turn()  #there are better ways to do this but I want to play wiht a returned value from the function
+        end_game = players_turn()  #there are better ways to do this but I wanted to play wiht a returned value from the function
         if end_game != True:
             dealers_turn()
         play_again()
@@ -82,9 +99,6 @@ def players_turn():
 def dealers_turn():
     print(f'Dealer shows ', end = "")
     print(*dealer_cards)
-    #if sum(dealer_cards) >= sum(player_cards):
-    #    print(f'Dealer wins with {sum(dealer_cards)} over your {sum(player_cards)}!')
-    #    return
     while True:
     #    if sum(dealer_cards) > 16:
         if sum(dealer_cards) > 21:
@@ -122,8 +136,6 @@ def play_again():
             break
         else:
             print('Please type Y or N\n')
-
-
 
 if __name__ == '__main__':
     main()
